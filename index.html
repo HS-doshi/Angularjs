@@ -2,13 +2,34 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset=" UTF-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculator</title>
 </head>
 
-<body>
-    <h1>Hello!! I'm Heet Doshi. Learning Angular JS. I am thrilled about this new learning.</h1>
+<body ng-app="Calculator">
+    <h1>Calculator</h1>
+    <div ng-controller="namecalculator">
+        <div>
+            Your name :
+            <input type="text" ng-model="name" ng-keyup="displayNumeric();">
+        </div>
+        <div>
+            Total numeric value of person's name is :
+            {{totalValue}}
+
+        </div>
+    </div>
+
+
+
+    <!-- <h1>Hello!! I'm Heet Doshi. Learning Angular JS. I am thrilled about this new learning.</h1>
+        {{sayHello()}}
+        <input type="text" ng-model="name">
+        Inside my input is : {{name}} -->
+    <!-- name variable is completely bound. -->
 </body>
 
 </html>
