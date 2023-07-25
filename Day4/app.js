@@ -2,19 +2,39 @@
     'use-strict';
 
     angular.module("filter-app", [])
-        .controller('filterMethod', filterMethod);
+        .controller('MsgController', MsgController)
+        .filter('loves', LovesFilter)
+        .filter('truth', TruthFilter);
 
-    filterMethod.$inject = ['$scope', '$filter'];
+    MsgController.$inject = ['$scope', 'lovesFilter'];
 
-    function filterMethod($scope, $filter) {
-        $scope.name = "Heet";
-        $scope.stateOfBeing = "Doshi";
-        $scope.cokkie = .45;
+    function MsgController($scope, lovesFilter) {
 
+        $scope.stateOfBeing = "Heet";
         $scope.Message = function () {
-            var msg = "I love to do code in angular & react js!!";
-            var output = $filter('uppercase')(msg)
-            return output;
+            var msg = "I likes to do code in angular & react js!!";
+            return msg;
         };
+        $scope.sayLovesMsg = function () {
+            var msg = "I likes to do code in angular & javascript!";
+            msg = lovesFilter(msg);
+            return msg;
+        }
+    }
+
+    function LovesFilter() {
+        return function (input) {
+            input = input || "";
+            input = input.replace("likes", "loves");
+            return input;
+        }
+    }
+
+    function TruthFilter() {
+        return function (input, target, replace) {
+            input = input || "";
+            input = input.replace(target, replace);
+            return input;
+        }
     }
 })();
