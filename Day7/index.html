@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ShoppingList">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./angular.min.js"></script>
+    <script src="./app.js"></script>
+    <title>ng-repeat</title>
+</head>
+
+<body>
+    <h1>ng-repeat</h1>
+    <div ng-Controller="ShoppingListController">
+        <h3>Shopping List : </h3>
+
+        <input type="text" ng-model="search">
+        <ul>
+            <li ng-repeat="item in ShoppingList1 | filter : search">{{item}}</li>
+        </ul>
+        <!-- here, it's filter & search built in function -->
+        <!-- <ul>
+            <li ng-repeat="item in ShoppingList2">Buy {{item.quantity}} of {{item.name}}(s)</li>
+        </ul>
+
+        <input type="text" ng-model="ShoppingList2[0].quantity">
+        <ul>
+            <li ng-repeat="item in ShoppingList2">{{$index+1}}. Buy {{item.quantity}} of {{item.name}}(s)</li>
+             $index represent number from starting to go on. 
+        </ul> -->
+        <input type="text" ng-model="newItemNamef" placeholder="item name">
+        <input type="text" ng-model="newItemQuantity" placeholder="item quantity">
+        <button ng-click="addToList()">Add to List</button>
+    </div>
+</body>
+
+</html>
